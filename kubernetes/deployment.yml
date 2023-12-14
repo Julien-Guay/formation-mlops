@@ -23,7 +23,7 @@ spec:
             - name: MLFLOW_MODEL_NAME
               value: nace
             - name: MLFLOW_MODEL_VERSION
-              value: "1"
+              value: "2"
           resources:
             limits:
               memory: "2Gi"
