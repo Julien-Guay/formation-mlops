@@ -2,6 +2,7 @@
 Main file for the API.
 """
 import os
+import logging
 from contextlib import asynccontextmanager
 from typing import List, Dict
 from fastapi import FastAPI
@@ -104,5 +105,14 @@ async def predict(
     }
 
     predictions = model.predict(query)
+
+    logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s - %(levelname)s - %(message)s",
+    handlers=[
+        logging.FileHandler("log_file.log"),
+        logging.StreamHandler(),
+    ],
+    )
 
     return predictions[0]
